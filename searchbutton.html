@@ -6,8 +6,9 @@
            window.onload = function() {
              document.getElementById("search").addEventListener(
                              "click", function(){
+                var box=document.getElementById("box").value            
                 // go out and get result from request.php
-                 new Ajax.Request("request.php?q=definition",
+                 new Ajax.Request("request.php?q="+box+"&all=true",
                        {
                           method: "get",
                           onSuccess: doSomethingWithTheResult
@@ -16,14 +17,34 @@
            });
 
 function doSomethingWithTheResult(data) {
-                          alert(data.responseText);
-                        }
+                var div = document.getElementById('result');
+                var definition, list;
+                if((data.responseXML)==null){   
+                        div.innerHTML = div.innerHTML + data.responseText;
+                }
+                else{
+                    var xml=data.responseXML;
+                    var deflist=xml.getElementsByTagName('entries')[0].childNodes;
+                    for(var i=0; i < deflist.length; i++){
+                        list=document.createElement("li");
+                        definition=document.createElement("p");
+                        definition.innerHTML=deflist[i].firstChild.nodeValue;
+                        list.appendChild(definition);
+                        console.log(definition);
+                    }
+                    div.appendChild(list)
+                }
+    
+}
            }                        
 
        </script>
         <title>Ajax Demo of Seach Button</title>
     </head>
     <body>
+            <input id ="box" type="text">
             <button id="search">Search</button>
+            <br>
+            <div id ="result"></div>
     </body>
 </html>
