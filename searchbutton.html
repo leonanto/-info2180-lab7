@@ -18,21 +18,11 @@
 
 function doSomethingWithTheResult(data) {
                 var div = document.getElementById('result');
-                var definition, list;
                 if((data.responseXML)==null){   
                         div.innerHTML = div.innerHTML + data.responseText;
                 }
                 else{
-                    var xml=data.responseXML;
-                    var deflist=xml.getElementsByTagName('entries')[0].childNodes;
-                    for(var i=0; i < deflist.length; i++){
-                        list=document.createElement("li");
-                        definition=document.createElement("p");
-                        definition.innerHTML=deflist[i].firstChild.nodeValue;
-                        list.appendChild(definition);
-                        console.log(definition);
-                    }
-                    div.appendChild(list)
+                    div.innerHTML = div.innerHTML + data.responseText;
                 }
     
 }
