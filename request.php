@@ -35,34 +35,43 @@ $string = <<<XML
         <definition>
             definition = a statement of the exact meaning of a word, especially in a dictionary.
         </definition>
+        <br></br>
         <example>
             example = the definition of bar is a place that sells drinks.
         </example>
+        <br></br>
         <author>
             author = Mos Def-inition
         </author>
+        <br></br>
     </li>
     <li>
         <definition>
             bar = a place that sells alcholic beverages.
          </definition>
+         <br></br>
         <example>
             example = we should go down to the bar for some drinks.
         </example>
+        <br></br>
         <author>
             author = Patrick O'Mally
         </author>
+        <br></br>
     </li>
     <li>
         <definition>
             ajax = technique which involves the use of javascript and xml.
          </definition>
+         <br></br>
         <example>
             example = i'm thinking of using ajax for a project.
         </example>
+        <br></br>
         <author>
             author = Jack Ace
         </author>
+        <br></br>
     </li>
 </ol>
 XML;
